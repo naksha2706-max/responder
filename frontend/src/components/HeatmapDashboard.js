@@ -110,10 +110,10 @@ const HeatmapDashboard = () => {
 
   const getHeatmapColor = (severity) => {
     switch (severity) {
-      case 'high': return 'rgba(239, 68, 68, 0.4)';
-      case 'medium': return 'rgba(245, 158, 11, 0.4)';
-      case 'low': return 'rgba(16, 185, 129, 0.4)';
-      default: return 'rgba(255, 255, 255, 0.05)';
+      case 'high': return '#2563eb'; // Deep Blue
+      case 'medium': return '#60a5fa'; // Light Blue
+      case 'low': return '#dbeafe'; // Very Light Blue
+      default: return '#f8fafc'; // Off White
     }
   };
 
@@ -158,13 +158,16 @@ const HeatmapDashboard = () => {
               <span className="stat-label">Campus Risk Level</span>
               <span className="stat-val critical">{riskScore}/100</span>
             </div>
+            <div className="stat-box sentiment-box">
+              <span className="stat-label">Student Peace Index</span>
+              <span className="stat-val peace-high">
+                {Math.round((mockCases.filter(c => c.followUpStatus === 'better').length / mockCases.length) * 100)}%
+              </span>
+              <span className="sentiment-note">Based on follow-up wellbeing</span>
+            </div>
             <div className="stat-box">
               <span className="stat-label">72h+ Escalations</span>
               <span className="stat-val high">{escalatedCount}</span>
-            </div>
-            <div className="stat-box">
-              <span className="stat-label">Total Resolving</span>
-              <span className="stat-val medium">24</span>
             </div>
           </div>
 

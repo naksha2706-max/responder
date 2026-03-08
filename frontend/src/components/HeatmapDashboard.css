@@ -2,11 +2,12 @@
    HEATMAP DASHBOARD — PREMIUM DARK GLASSMORPHISM
    ========================================= */
 
-.heatmap-page {
+.analytics-dashboard-page {
   min-height: 100vh;
   padding: 24px;
-  background: var(--bg-dark);
-  position: relative;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
 
@@ -36,13 +37,10 @@
   animation: fadeIn 0.4s ease;
 }
 
-.dashboard-header h1 {
-  font-size: 1.7rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, #60A5FA, #A78BFA);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.dashboard-nav-bar h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
   margin: 0;
 }
 

@@ -130,6 +130,9 @@ export default function AdminDashboard() {
     c => c.status === "REPORTED" || c.status === "UNDER_REVIEW"
   ).length;
 
+  const betterCount = filteredCases.filter(c => c.followUpStatus === "BETTER").length;
+  const peaceIndex = total > 0 ? Math.round((betterCount / total) * 100) : 0;
+
   // Cluster detection
   const ragingHostelB = cases.filter(
     c =>
@@ -150,10 +153,10 @@ export default function AdminDashboard() {
   }));
 
   const getHeatColor = (count: number) => {
-    if (count === 0) return "#1f2937";
-    if (count <= 2) return "#78350f";
-    if (count <= 4) return "#92400e";
-    return "#991b1b";
+    if (count === 0) return "#f1f5f9";
+    if (count <= 2) return "#dbeafe";
+    if (count <= 4) return "#93c5fd";
+    return "#2563eb";
   };
 
   // Sort cases — WORSE first, then 72hr escalation, then rest
@@ -179,19 +182,21 @@ export default function AdminDashboard() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "#030712",
-      fontFamily: "system-ui, -apple-system, sans-serif",
-      paddingBottom: 60
+      background: "linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%)",
+      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+      paddingBottom: 60,
+      color: "#1e293b"
     }}>
 
       {/* Header */}
       <div style={{
-        background: "#0f172a",
-        borderBottom: "1px solid #1e293b",
+        background: "#ffffff",
+        borderBottom: "1px solid #e2e8f0",
         padding: "14px 20px",
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        boxShadow: "0 2px 4px rgba(37, 99, 235, 0.05)"
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{
@@ -208,7 +213,7 @@ export default function AdminDashboard() {
           </div>
           <div>
             <p style={{
-              color: "#f1f5f9",
+              color: "#1e3a8a",
               fontWeight: 700,
               margin: 0,
               fontSize: 14
@@ -216,7 +221,7 @@ export default function AdminDashboard() {
               Sahayak Admin
             </p>
             <p style={{
-              color: "#374151",
+              color: "#64748b",
               fontSize: 10,
               margin: 0
             }}>
@@ -228,12 +233,13 @@ export default function AdminDashboard() {
           onClick={handleLogout}
           style={{
             background: "transparent",
-            border: "1px solid #1e293b",
-            color: "#4b5563",
+            border: "1px solid #e2e8f0",
+            color: "#64748b",
             padding: "6px 14px",
             borderRadius: 8,
             cursor: "pointer",
-            fontSize: 12
+            fontSize: 12,
+            transition: "all 0.2s"
           }}
         >
           Logout
@@ -245,18 +251,19 @@ export default function AdminDashboard() {
         {/* Cluster Alert */}
         {clusterDetected && (
           <div style={{
-            background: "rgba(239,68,68,0.08)",
-            border: "1px solid rgba(239,68,68,0.3)",
+            background: "#fff1f2",
+            border: "1px solid #fecdd3",
             borderRadius: 14,
             padding: 16,
             marginBottom: 20,
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center"
+            alignItems: "center",
+            boxShadow: "0 10px 15px -3px rgba(225, 29, 72, 0.1)"
           }}>
             <div>
               <p style={{
-                color: "#ef4444",
+                color: "#e11d48",
                 fontWeight: 900,
                 margin: "0 0 4px",
                 fontSize: 15
@@ -264,14 +271,14 @@ export default function AdminDashboard() {
                 ⚠️ CLUSTER DETECTED
               </p>
               <p style={{
-                color: "#fca5a5",
+                color: "#9f1239",
                 fontSize: 13,
                 margin: "0 0 4px"
               }}>
                 {ragingHostelB.length} RAGGING cases — Hostel B — last 48 hours
               </p>
               <p style={{
-                color: "#7f1d1d",
+                color: "#be123c",
                 fontSize: 12,
                 margin: 0
               }}>
@@ -281,9 +288,9 @@ export default function AdminDashboard() {
             <button
               onClick={() => setClusterAck(true)}
               style={{
-                background: "rgba(239,68,68,0.15)",
-                border: "1px solid rgba(239,68,68,0.3)",
-                color: "#fca5a5",
+                background: "#e11d48",
+                border: "none",
+                color: "white",
                 padding: "8px 16px",
                 borderRadius: 10,
                 cursor: "pointer",
@@ -301,21 +308,51 @@ export default function AdminDashboard() {
         {/* Stats */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(2, 1fr)",
+          gap: 12,
+          marginBottom: 12
+        }}>
+          <div style={{
+            background: "#ffffff",
+            border: "1px solid #e2e8f0",
+            borderRadius: 14,
+            padding: 16,
+            textAlign: "center",
+            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.03)"
+          }}>
+            <p style={{ color: "#3b82f6", fontSize: 32, fontWeight: 900, margin: "0 0 4px" }}>{peaceIndex}%</p>
+            <p style={{ color: "#64748b", fontSize: 11, margin: 0, textTransform: "uppercase", letterSpacing: 1 }}>Student Peace Index</p>
+          </div>
+          <div style={{
+            background: "#ffffff",
+            border: "1px solid #e2e8f0",
+            borderRadius: 14,
+            padding: 16,
+            textAlign: "center",
+            boxShadow: "0 4px 12px rgba(37, 99, 235, 0.03)"
+          }}>
+            <p style={{ color: "#ef4444", fontSize: 32, fontWeight: 900, margin: "0 0 4px" }}>{highSeverity}</p>
+            <p style={{ color: "#64748b", fontSize: 11, margin: 0, textTransform: "uppercase", letterSpacing: 1 }}>Critical Alerts</p>
+          </div>
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(2, 1fr)",
           gap: 12,
           marginBottom: 20
         }}>
           {[
-            { label: "Total Cases", value: total, color: "#3b82f6" },
-            { label: "High Severity", value: highSeverity, color: "#ef4444" },
+            { label: "Total Cases", value: total, color: "#1e3a8a" },
             { label: "Pending Action", value: pending, color: "#f59e0b" }
           ].map(stat => (
             <div key={stat.label} style={{
-              background: "#0f172a",
-              border: "1px solid #1e293b",
+              background: "#ffffff",
+              border: "1px solid #e2e8f0",
               borderRadius: 14,
               padding: 16,
-              textAlign: "center"
+              textAlign: "center",
+              boxShadow: "0 4px 12px rgba(37, 99, 235, 0.03)"
             }}>
               <p style={{
                 color: stat.color,
@@ -326,7 +363,7 @@ export default function AdminDashboard() {
                 {stat.value}
               </p>
               <p style={{
-                color: "#374151",
+                color: "#64748b",
                 fontSize: 11,
                 margin: 0,
                 textTransform: "uppercase",
@@ -402,10 +439,10 @@ export default function AdminDashboard() {
             flexWrap: "wrap"
           }}>
             {[
-              { color: "#1f2937", label: "No incidents" },
-              { color: "#78350f", label: "1-2 cases" },
-              { color: "#92400e", label: "3-4 cases" },
-              { color: "#991b1b", label: "5+ cases" }
+              { color: "#f1f5f9", label: "No incidents" },
+              { color: "#dbeafe", label: "1-2 cases" },
+              { color: "#93c5fd", label: "3-4 cases" },
+              { color: "#2563eb", label: "5+ cases" }
             ].map(l => (
               <div key={l.label} style={{
                 display: "flex",
@@ -416,9 +453,10 @@ export default function AdminDashboard() {
                   width: 12,
                   height: 12,
                   borderRadius: 3,
-                  background: l.color
+                  background: l.color,
+                  border: "1px solid #e2e8f0"
                 }} />
-                <span style={{ color: "#374151", fontSize: 10 }}>
+                <span style={{ color: "#64748b", fontSize: 10 }}>
                   {l.label}
                 </span>
               </div>
@@ -471,16 +509,17 @@ export default function AdminDashboard() {
               <div
                 key={c.caseId}
                 style={{
-                  background: "#030712",
+                  background: "#ffffff",
                   border: `1px solid ${c.followUpStatus === "WORSE"
-                    ? "rgba(239,68,68,0.3)"
-                    : "#1e293b"}`,
-                  borderLeft: `3px solid ${c.followUpStatus === "WORSE"
+                    ? "#fecdd3"
+                    : "#e2e8f0"}`,
+                  borderLeft: `4px solid ${c.followUpStatus === "WORSE"
                     ? "#ef4444"
-                    : TYPE_COLORS[c.crisisType] || "#374151"}`,
-                  borderRadius: 10,
-                  padding: "12px 14px",
-                  marginBottom: 8
+                    : TYPE_COLORS[c.crisisType] || "#94a3b8"}`,
+                  borderRadius: 12,
+                  padding: "16px",
+                  marginBottom: 10,
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.02)"
                 }}
               >
                 <div style={{

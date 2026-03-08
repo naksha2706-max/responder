@@ -29,9 +29,16 @@ const AdminLogin = () => {
     e.preventDefault();
 
     // Mock authentication
-    const validInstitutions = ['IIT-001', 'NIT-002', 'IIIT-003', 'COLLEGE-004'];
+    const validInstitutions = ['IIT-001', 'NIT-TN-01', 'NIT-002', 'IIIT-003', 'COLLEGE-004'];
     const validAccessKeys = {
       'IIT-001': {
+        icc_officer: 'ICC-2024-001',
+        anti_ragging_warden: 'ARW-2024-001',
+        campus_counsellor: 'CC-2024-001',
+        dean: 'DEAN-2024-001',
+        security_officer: 'SEC-2024-001'
+      },
+      'NIT-TN-01': {
         icc_officer: 'ICC-2024-001',
         anti_ragging_warden: 'ARW-2024-001',
         campus_counsellor: 'CC-2024-001',
