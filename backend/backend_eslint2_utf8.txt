@@ -1,0 +1,33 @@
+﻿
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\message-processor\bedrock.js
+    1:54  error  'require' is not defined                                        no-undef
+    2:29  error  'require' is not defined                                        no-undef
+    4:51  error  'process' is not defined                                        no-undef
+   49:16  error  'process' is not defined                                        no-undef
+   55:49  error  'process' is not defined                                        no-undef
+   93:5   error  There is no `cause` attached to the symptom error being thrown  preserve-caught-error
+  178:1   error  'module' is not defined                                         no-undef
+
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\message-processor\index.js
+  1:24  error  'require' is not defined  no-undef
+  2:86  error  'require' is not defined  no-undef
+  3:79  error  'require' is not defined  no-undef
+  4:35  error  'require' is not defined  no-undef
+  6:1   error  'exports' is not defined  no-undef
+
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\shared\dynamo.js
+    1:28  error  'require' is not defined  no-undef
+    2:89  error  'require' is not defined  no-undef
+    4:45  error  'process' is not defined  no-undef
+    7:24  error  'process' is not defined  no-undef
+    8:24  error  'process' is not defined  no-undef
+  175:1   error  'module' is not defined   no-undef
+
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\shared\prompts.js
+  184:1  error  'module' is not defined  no-undef
+
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\shared\resources.js
+  264:1  error  'module' is not defined  no-undef
+
+Γ£û 20 problems (20 errors, 0 warnings)
+

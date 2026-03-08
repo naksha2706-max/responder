@@ -1,0 +1,12 @@
+﻿
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\ChatInterface.js
+  10:10  warning  'crisisInfo' is assigned a value but never used  no-unused-vars
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\screens\Chat.tsx
+  68:6  warning  React Hook useEffect has a missing dependency: 'text.initialMessage'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\services\mockApi.js
+  240:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+Γ£û 3 problems (0 errors, 3 warnings)
+

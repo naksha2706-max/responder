@@ -1,0 +1,6 @@
+﻿
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\message-processor\bedrock.js
+  93:5  error  There is no `cause` attached to the symptom error being thrown  preserve-caught-error
+
+Γ£û 1 problem (1 error, 0 warnings)
+

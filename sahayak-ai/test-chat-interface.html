@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Chat Interface</title>
+    <style>
+        body { font-family: system-ui; padding: 20px; background: #0a0f1e; color: white; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .message { margin: 10px 0; padding: 10px; border-radius: 10px; }
+        .user { background: #1d4ed8; text-align: right; }
+        .assistant { background: #1f2937; }
+        .input-area { display: flex; gap: 10px; margin-top: 20px; }
+        input { flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #374151; background: #0a0f1e; color: white; }
+        button { padding: 10px 20px; background: #1d4ed8; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .loading { color: #6b7280; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛡️ Sahayak AI - Chat Test</h1>
+        <div id="messages"></div>
+        <div class="input-area">
+            <input type="text" id="messageInput" placeholder="Type your message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        
+        function addMessage(role, content) {
+            const div = document.createElement('div');
+            div.className = `message ${role}`;
+            div.textContent = content;
+            messagesDiv.appendChild(div);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            addMessage('user', message);
+            messageInput.value = '';
+            
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'message assistant loading';
+            loadingDiv.textContent = 'Claude is thinking...';
+            messagesDiv.appendChild(loadingDiv);
+            
+            try {
+                const response = await fetch('/api/classify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: message,
+                        sessionId: 'test-' + Date.now(),
+                        language: 'en',
+                        conversationHistory: []
+                    })
+                });
+                
+                const data = await response.json();
+                messagesDiv.removeChild(loadingDiv);
+                addMessage('assistant', data.response);
+                
+                if (data.classification?.crisisType) {
+                    addMessage('assistant', `🏷️ Classified as: ${data.classification.crisisType} (${data.classification.severity})`);
+                }
+                
+            } catch (error) {
+                messagesDiv.removeChild(loadingDiv);
+                addMessage('assistant', 'Sorry, there was an error: ' + error.message);
+            }
+        }
+        
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Initial message
+        addMessage('assistant', 'Hello! This is a test of the Sahayak AI chat interface. Real Claude is connected via OpenRouter. Try sending a message!');
+    </script>
+</body>
+</html>

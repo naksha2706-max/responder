@@ -1,0 +1,31 @@
+﻿
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\ActionCenter.js
+  52:6  warning  React Hook useEffect has a missing dependency: 'generateComplaint'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\ChatInterface.js
+  179:9  warning  'formatTime' is assigned a value but never used  no-unused-vars
+
+Γ£û 2 problems (0 errors, 2 warnings)
+
+npx : ESLint found too 
+many warnings 
+(maximum: 0).
+At line:1 char:1
++ npx eslint src/compon
+ents/ChatInterface.js s
+rc/components/ActionCen
+te ...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (ESLint found    
+ to...s (maximum: 0    
+).:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 

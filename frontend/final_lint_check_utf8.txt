@@ -1,0 +1,36 @@
+﻿
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\App.js
+  16:25  warning  'setSelectedState' is assigned a value but never used  no-unused-vars
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\ActionCenter.js
+  14:9  warning  The 'currentData' logical expression could make the dependencies of useEffect Hook (at line 58) change on every render. To fix this, wrap the initialization of 'currentData' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\CaseManagement.js
+  198:6  warning  React Hook useEffect has a missing dependency: 'mockCases'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\HeatmapDashboard.js
+  96:6  warning  React Hook useEffect has a missing dependency: 'mockData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Γ£û 4 problems (0 errors, 4 warnings)
+
+npx : ESLint found too 
+many warnings 
+(maximum: 0).
+At line:1 char:1
++ npx eslint src 
+--max-warnings=0 > 
+final_lint_check.txt 
+2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (ESLint found    
+ to...s (maximum: 0    
+).:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 

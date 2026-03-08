@@ -1,0 +1,30 @@
+﻿npx : Warning: React 
+version not specified 
+in eslint-plugin-react 
+settings. See https://g
+ithub.com/jsx-eslint/es
+lint-plugin-react#confi
+guration .
+At line:1 char:1
++ npx eslint src 
+--max-warnings=0 > 
+backend_lint.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (Warning: Reac   
+ t ...configuration    
+ .:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+
+C:\Users\Dell\OneDrive\Desktop\bharat\backend\src\health-check\index.js
+  1:31  error  'event' is defined but never used  no-unused-vars
+
+Γ£û 1 problem (1 error, 0 warnings)
+

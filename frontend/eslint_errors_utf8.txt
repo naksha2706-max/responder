@@ -1,0 +1,29 @@
+﻿
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\ChatInterface.js
+  26:10  warning  'safeWord' is assigned a value but never used  no-unused-vars
+
+C:\Users\Dell\OneDrive\Desktop\bharat\frontend\src\components\SafeWordDecoy.js
+  5:12  warning  'clickCount' is assigned a value but never used  no-unused-vars
+
+Γ£û 2 problems (0 errors, 2 warnings)
+
+npx : ESLint found too 
+many warnings 
+(maximum: 0).
+At line:1 char:1
++ npx eslint src 
+--max-warnings=0 > 
+eslint_errors.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (ESLint found    
+ to...s (maximum: 0    
+).:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
