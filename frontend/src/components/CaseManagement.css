@@ -2,12 +2,7 @@
    CASE MANAGEMENT — PREMIUM DARK GLASSMORPHISM
    ========================================= */
 
-.case-management-page {
-  min-height: 100vh;
-  padding: 24px;
-  background: var(--bg-dark);
-  position: relative;
-}
+/* Layout handled by HeatmapDashboard.css / admin-layout-wrapper */
 
 .case-management-page::before {
   content: '';
@@ -189,13 +184,11 @@
 }
 
 .case-container {
-  max-width: 1200px;
-  margin: 0 auto;
   background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.05);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.03);
   padding: 32px;
-  border: 1px solid rgba(37, 99, 235, 0.1);
+  border: 1px solid #e2e8f0;
 }
 
 /* === STATUS BADGE === */

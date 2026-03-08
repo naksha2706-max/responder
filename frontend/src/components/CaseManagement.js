@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from './Sidebar';
 import './CaseManagement.css';
 
 export const mockCases = [
@@ -359,35 +360,21 @@ const CaseManagement = ({ language }) => {
   const filteredCases = getFilteredAndSortedCases();
 
   return (
-    <div className="case-management">
-      <div className="case-container">
-        {/* Header */}
-        <div className="case-header">
-          <div className="header-info">
-            <button className="back-button" onClick={() => navigate('/admin/analytics')}>
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M5 12L12 19M5 12L12 5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              {text.backButton}
-            </button>
-            <div>
-              <h1>{text.title}</h1>
-              <p className="subtitle">{text.subtitle}</p>
-              <div className="admin-info">
-                <span className="institution-id">{adminSession.institutionId}</span>
-                <span className="role-badge">{adminSession.role}</span>
-              </div>
+    <div className="admin-layout-wrapper">
+      <Sidebar adminSession={adminSession} onLogout={handleLogout} />
+      
+      <main className="admin-layout-main">
+        <header className="admin-main-header">
+          <div className="header-breadcrumbs">
+            <span>Admin</span> / <span>Cases Hub</span>
+          </div>
+          <div className="header-actions-row">
+            <h1>Cases Hub</h1>
+            <div className="header-btns">
+              <button className="btn-secondary" onClick={exportCases}>📊 {text.exportCases}</button>
             </div>
           </div>
-          <div className="header-actions">
-            <button className="export-btn" onClick={exportCases}>
-              📊 {text.exportCases}
-            </button>
-            <button className="logout-btn" onClick={handleLogout}>
-              🚪 {text.logoutButton}
-            </button>
-          </div>
-        </div>
+        </header>
 
         {/* Feature 11: 72-Hour Escalation Warning */}
         {filteredCases.some(c => (new Date() - new Date(c.date)) > (72 * 60 * 60 * 1000) && c.status !== 'Resolved') && (
@@ -638,7 +625,7 @@ const CaseManagement = ({ language }) => {
             </div>
           </div>
         )}
-      </div>
+      </main>
     </div>
   );
 };

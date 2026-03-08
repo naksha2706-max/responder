@@ -2,13 +2,66 @@
    HEATMAP DASHBOARD — PREMIUM DARK GLASSMORPHISM
    ========================================= */
 
-.analytics-dashboard-page {
-  min-height: 100vh;
-  padding: 24px;
+.admin-layout-wrapper {
+  display: flex;
   background-color: #f8fafc;
-  color: #1e293b;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.admin-layout-main {
+  flex: 1;
+  margin-left: 260px;
+  padding: 32px 40px;
+  max-width: 1400px;
+}
+
+.admin-main-header {
+  margin-bottom: 32px;
+}
+
+.header-breadcrumbs {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.header-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-actions-row h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin: 0;
+}
+
+.header-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.btn-secondary:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
 }
 
 .heatmap-page::before {
@@ -156,23 +209,23 @@
 }
 
 /* === PANEL COMPONENTS === */
-.panel {
-  background: white;
-  border: 1px solid rgba(37, 99, 235, 0.1);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.06);
-  margin-bottom: 20px;
-  animation: fadeIn 0.5s ease both;
+.dash-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.03);
+  margin-bottom: 24px;
 }
 
-.panel h2, .panel h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(37, 99, 235, 0.08);
+.dash-card h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* === HEATMAP GRID === */

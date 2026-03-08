@@ -182,70 +182,80 @@ export default function AdminDashboard() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%)",
+      background: "#f8fafc",
       fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-      paddingBottom: 60,
+      display: "flex",
       color: "#1e293b"
     }}>
 
-      {/* Header */}
+      {/* Sidebar */}
       <div style={{
+        width: 260,
         background: "#ffffff",
-        borderBottom: "1px solid #e2e8f0",
-        padding: "14px 20px",
+        borderRight: "1px solid #e2e8f0",
         display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        boxShadow: "0 2px 4px rgba(37, 99, 235, 0.05)"
+        flexDirection: "column",
+        position: "fixed",
+        height: "100vh",
+        zIndex: 10
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{
-            width: 32,
-            height: 32,
-            borderRadius: 8,
-            background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 14
+        <div style={{ padding: "32px 24px" }}>
+          <h2 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 800, color: "#1e3a8a" }}>Sahayak AI</h2>
+          <p style={{ margin: 0, fontSize: "0.75rem", color: "#64748b", fontWeight: 600 }}>Assistant Dashboard</p>
+        </div>
+        <div style={{ flex: 1, padding: 12, display: "flex", flexDirection: "column", gap: 4 }}>
+          <div style={{ 
+            background: "#eff6ff", 
+            color: "#2563eb", 
+            padding: "12px 16px", 
+            borderRadius: 12, 
+            fontWeight: 700, 
+            display: "flex", 
+            alignItems: "center", 
+            gap: 12, 
+            cursor: "pointer" 
           }}>
-            🛡️
-          </div>
-          <div>
-            <p style={{
-              color: "#1e3a8a",
-              fontWeight: 700,
-              margin: 0,
-              fontSize: 14
-            }}>
-              Sahayak Admin
-            </p>
-            <p style={{
-              color: "#64748b",
-              fontSize: 10,
-              margin: 0
-            }}>
-              {adminName} · NIT-TN-0042
-            </p>
+            <span>📊</span> Analytics
           </div>
         </div>
-        <button
-          onClick={handleLogout}
-          style={{
-            background: "transparent",
-            border: "1px solid #e2e8f0",
-            color: "#64748b",
-            padding: "6px 14px",
-            borderRadius: 8,
-            cursor: "pointer",
-            fontSize: 12,
-            transition: "all 0.2s"
-          }}
-        >
-          Logout
-        </button>
+        <div style={{ padding: 20, borderTop: "1px solid #e2e8f0", background: "#f8fafc" }}>
+          <button 
+            onClick={handleLogout}
+            style={{ 
+              width: "100%", 
+              background: "transparent", 
+              border: "1px solid #e2e8f0", 
+              padding: 10, 
+              borderRadius: 10, 
+              color: "#64748b", 
+              fontSize: "0.85rem", 
+              fontWeight: 700, 
+              cursor: "pointer" 
+            }}
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
+      {/* Main Content */}
+      <main style={{ flex: 1, marginLeft: 260, padding: "32px 40px" }}>
+        <header style={{ marginBottom: 32 }}>
+          <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+            Admin / Dashboard
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1e3a8a", margin: 0 }}>
+              Institution Analytics
+            </h1>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ textAlign: "right" }}>
+                <p style={{ color: "#1e293b", fontWeight: 700, margin: 0, fontSize: 13 }}>{adminName}</p>
+                <p style={{ color: "#64748b", fontSize: 10, margin: 0 }}>Dean · NIT-TN-0042</p>
+              </div>
+            </div>
+          </div>
+        </header>
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "20px 16px" }}>
 
         {/* Cluster Alert */}
@@ -623,6 +633,7 @@ export default function AdminDashboard() {
           })}
         </div>
       </div>
+      </main>
     </div>
   );
 }

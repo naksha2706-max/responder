@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { mockCases } from './CaseManagement';
+import Sidebar from './Sidebar';
 import './HeatmapDashboard.css';
 
 // Mock data moved outside to fix lint dependencies
@@ -131,25 +132,23 @@ const HeatmapDashboard = () => {
   }
 
   return (
-    <div className="analytics-dashboard-page">
-      {/* Navbar */}
-      <div className="dashboard-nav-bar">
-        <div className="nav-left">
-          <span className="nav-shield">🛡️</span>
-          <div className="nav-titles">
-            <h1>Sahayak AI / Institution Analytics</h1>
-            <p>Dean's View — Monitor patterns, hotspots, and risk.</p>
+    <div className="admin-layout-wrapper">
+      <Sidebar adminSession={adminSession} onLogout={handleLogout} />
+      
+      <main className="admin-layout-main">
+        <header className="admin-main-header">
+          <div className="header-breadcrumbs">
+            <span>Admin</span> / <span>Analytics</span>
           </div>
-        </div>
-        <div className="nav-right">
-          <span className="admin-badge">{adminSession.role.replace('_', ' ')} :: {adminSession.institutionId}</span>
-          <button className="nav-btn" onClick={() => navigate('/admin/cases')}>📋 Cases Hub</button>
-          <button className="nav-btn" onClick={exportData}>📥 Export PDF</button>
-          <button className="nav-btn logout" onClick={handleLogout}>🚪 Logout</button>
-        </div>
-      </div>
+          <div className="header-actions-row">
+            <h1>Institution Analytics</h1>
+            <div className="header-btns">
+              <button className="btn-secondary" onClick={exportData}>📥 Export PDF</button>
+            </div>
+          </div>
+        </header>
 
-      <div className="dashboard-content-grid">
+        <div className="dashboard-content-grid">
         {/* Main Column */}
         <div className="main-column">
 
@@ -251,7 +250,8 @@ const HeatmapDashboard = () => {
           </div>
 
         </div>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };
